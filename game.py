@@ -12,20 +12,16 @@ class Game:
         self.num_crct_guess = 0
         self.p = Player(self.answer_len)
 
+        self.guessed = False
+
     def progress_game(self):
         self.print_answer_len()
         
         while (self.num_inct_guess < self.MAX_INCT_GUESS and self.num_crct_guess < len(self.answer)):
             self.print_hidden()
-            guess = self.p.user_guess()
-            if guess == "STATUS":
-                self.print_hangman()
-            elif guess == "HELP":
-                self.p.recommendation(self.hidden_answer)
-            elif guess == "VIEW":
-                self.p.print_view()
-                # guess = player.user_guess()
-            elif self.answer.__contains__(guess):
+            guess = self.p.user_guess(self.hidden_answer)
+
+            if self.answer.__contains__(guess):
                 print("CORRECT GUESS")
                 self.reveal_hidden_with_guess(guess)
                 self.add_num_crct_guess()
@@ -38,10 +34,14 @@ class Game:
         success = self.num_crct_guess >= self.answer_len
         if not success:
             print("FAILED")
+            self.guessed = False
         else:
             print("CONGRATULATION")
+            self.guessed = True
             
         print(f"Answer was {self.answer}")
+
+        return self.guessed
 
     # endregion
 

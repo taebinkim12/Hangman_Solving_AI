@@ -12,5 +12,16 @@ def cleanup_words():
     new_file.close()
         
 cleanup_words()
-g = Game()
-g.progress_game()
+
+count_success = 0
+count_fail = 0
+for i in range(100):
+    g = Game()
+    if g.progress_game() == True:
+        count_success += 1
+    else:
+        count_fail += 1
+
+print("\nAfter 100 trials, here is the result")
+print(f"{count_success} times succeeded to guess")
+print(f"{count_fail} times failed to guess\n")
