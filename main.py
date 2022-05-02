@@ -1,4 +1,4 @@
-import game, player
+from game import Game
 def cleanup_words():
     a_file = open("words_alpha.txt", "r")
     lines = a_file.readlines()
@@ -12,5 +12,5 @@ def cleanup_words():
     new_file.close()
         
 cleanup_words()
-game.begin_game()
-game.progress_game()
+g = Game()
+g.progress_game()
