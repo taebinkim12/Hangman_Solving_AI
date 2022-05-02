@@ -1,7 +1,7 @@
 # Hangman Solving Algorithm
 
-## This program is a ***Hangman*** algorithm
-### Algorithm that assists problem solving of Hangman
+### This program is a ***Hangman*** algorithm
+#### Algorithm that assists problem solving of Hangman
 ___
 ## To run this program
 Download/clone this repository and navigate to directory that contains this project to open a terminal.  
